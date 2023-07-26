@@ -18,6 +18,7 @@ export async function selectProducts(connection: Connection, params: SelectProdu
         productName,
         productDescription
     FROM products
+    ORDER BY productCode
     LIMIT ?, ?
     `
 

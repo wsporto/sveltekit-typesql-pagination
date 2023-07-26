@@ -37,7 +37,8 @@ SELECT
     productName,
     productDescription
 FROM products
-LIMIT :offset, :limit
+ORDER BY productCode
+LIMIT :limit, :offset
 ```
 
 `src\sqls\select-products-total-count.sql`:
