@@ -14,6 +14,7 @@ pnpm i -d typesql-cli
 ```bash
 docker run -d --name classicmodels -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password wsporto/classicmodels-mysql:8.0
 ```
+The image contains the [sample database](https://www.mysqltutorial.org/mysql-sample-database.aspx) from the mysqltutorial.
 
 ### Use the typesql init to create the typesql.json configuration file:
 ```bash
@@ -74,11 +75,8 @@ export async function load({ url }) {
     };
 }
 ```
+### Now you can use the type-safe result in the `+page.svelte" page:
+![Alt text](image-1.png)
 
-### Install the `svelte-paginate` component and create the `+page.svelte` page.
-```bash
-pnpm install -d svelte-paginate
-```
-
-### Now you have a table with server-side pagination:
+### Congrats! You have a table with server-side pagination:
 ![Alt text](image.png)
