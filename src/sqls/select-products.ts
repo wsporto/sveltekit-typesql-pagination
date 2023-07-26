@@ -1,8 +1,8 @@
-import { Connection } from 'mysql2/promise';
+import type { Connection } from 'mysql2/promise';
 
 export type SelectProductsParams = {
-    offset: number;
     limit: number;
+    offset: number;
 }
 
 export type SelectProductsResult = {
@@ -11,7 +11,7 @@ export type SelectProductsResult = {
     productDescription: string;
 }
 
-export async function selectProducts(connection: Connection, params: SelectProductsParams) : Promise<SelectProductsResult[]> {
+export async function selectProducts(connection: Connection, params: SelectProductsParams): Promise<SelectProductsResult[]> {
     const sql = `
     SELECT
         productCode,
@@ -21,6 +21,6 @@ export async function selectProducts(connection: Connection, params: SelectProdu
     LIMIT ?, ?
     `
 
-    return connection.query(sql, [params.offset, params.limit])
-        .then( res => res[0] as SelectProductsResult[] );
+    return connection.query(sql, [params.limit, params.offset])
+        .then(res => res[0] as SelectProductsResult[]);
 }
