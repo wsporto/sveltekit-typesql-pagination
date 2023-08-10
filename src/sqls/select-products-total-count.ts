@@ -8,7 +8,6 @@ export async function selectProductsTotalCount(connection: Connection): Promise<
     const sql = `
     SELECT count(*) as total
     FROM products
-    LIMIT 1
     `
 
     return connection.query(sql)
