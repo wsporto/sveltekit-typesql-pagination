@@ -1,8 +1,8 @@
 import type { Connection } from 'mysql2/promise';
 
 export type SelectProductsParams = {
-    limit: number;
     offset: number;
+    limit: number;
 }
 
 export type SelectProductsResult = {
@@ -22,6 +22,6 @@ export async function selectProducts(connection: Connection, params: SelectProdu
     LIMIT ?, ?
     `
 
-    return connection.query(sql, [params.limit, params.offset])
+    return connection.query(sql, [params.offset, params.limit])
         .then(res => res[0] as SelectProductsResult[]);
 }

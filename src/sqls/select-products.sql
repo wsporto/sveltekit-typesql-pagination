@@ -4,4 +4,4 @@ SELECT
     productDescription
 FROM products
 ORDER BY productCode
-LIMIT :limit, :offset
+LIMIT :offset, :limit
